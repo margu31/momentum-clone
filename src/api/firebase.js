@@ -1,4 +1,5 @@
 import firebase from 'firebase/app';
+import { signInAction, signOutAction } from '../redux/modules/auth';
 
 const {
   REACT_APP_FB_API_KEY,
@@ -52,7 +53,7 @@ export const handleSignInGoogleAuthProvider = closeDialog => async dispatch => {
       photoURL: profile.picture,
     };
 
-    dispatch(signIn(currentUser));
+    dispatch(signInAction(currentUser));
     closeDialog();
   } catch (e) {
     console.error(e);
@@ -79,7 +80,7 @@ export const handleSignInWithEmailAndPassword = (
       photoURL: user.picture,
     };
 
-    dispatch(signIn(currentUser));
+    dispatch(signInAction(currentUser));
     closeDialog();
   } catch (e) {
     console.error(e);
@@ -92,7 +93,7 @@ const authSignOut = () => auth.signOut();
 export const handleSignOut = () => async dispatch => {
   try {
     await authSignOut();
-    dispatch(signOut());
+    dispatch(signOutAction());
   } catch (e) {
     console.error(e);
   }
