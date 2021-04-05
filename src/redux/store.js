@@ -3,8 +3,9 @@ import logger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Provider } from 'react-redux';
 import rootReducer from './modules';
+import thunk from 'redux-thunk';
 
-const middlewares = [logger];
+const middlewares = [thunk, logger];
 
 export const store = createStore(
   rootReducer,
