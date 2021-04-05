@@ -1,36 +1,35 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { DropDownTitle } from './DropDownTitle';
+import { NewTodoOrTodoList } from './NewTodoOrTodoList';
 
-const InputTodo = ({ onCreate }) => {
-  const [text, setText] = useState('');
-  const onChange = e => setText(e.target.value);
-  const onKeyDown = e => {
-    if (e.key === 'Enter') {
-      onCreate(text);
-      setText('');
-    }
-  };
+const StyledModal = styled.div`
+  box-sizing: border-box;
+  width: 320px;
+  height: auto;
+  padding: 15px;
+  padding-right: 5px;
+  text-align: left;
+  border-radius: 5px;
+  background-color: rgba(15, 15, 15, 0.88);
+  margin-bottom: 50px;
+`;
+
+const TodoModal = ({ todos, onCreate, onToggle, onRemove }) => {
+  const [title, setTitle] = useState('Today');
 
   return (
-    <input
-      type="text"
-      value={text}
-      onChange={onChange}
-      onKeyDown={onKeyDown}
-      placeholder="New Todo"
-    />
-  );
-};
-
-const TodoList = ({ todo, onToggle }) => {
-  return (
-    <li>
-      <input
-        type="checkbox"
-        onClick={() => onToggle(todo.number)}
-        id={`todo-${todo.number}`}
+    <StyledModal>
+      <DropDownTitle title={title} setTitle={setTitle} todos={todos} />
+      <NewTodoOrTodoList
+        todos={todos}
+        onCreate={onCreate}
+        onToggle={onToggle}
+        onRemove={onRemove}
+        title={title}
       />
-      <label htmlFor={`todo-${todo.number}`}>{todo.text}</label>
-    </li>
+    </StyledModal>
   );
 };
+
+export default TodoModal;
