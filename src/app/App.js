@@ -1,7 +1,11 @@
-import { ExampleContainer } from '../containers';
+import SignContainer from 'containers/SignContainer/SignContainer';
 
 function App() {
-  return <ExampleContainer />;
+  return (
+    <>
+      <SignContainer />
+    </>
+  );
 }
 
 export default App;
