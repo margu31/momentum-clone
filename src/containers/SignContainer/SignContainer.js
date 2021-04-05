@@ -7,6 +7,7 @@ import Modal from 'components/Modal/Modal';
 import StyledSignContainer from './SignContainer.styled';
 import { auth, createOrGetAuthUser, handleSignOut } from 'api/firebase';
 import { signInAction, signOutAction } from 'redux/modules/auth';
+import { AnimatePresence } from 'framer-motion';
 
 export default function SignContainer() {
   const isAuthed = useSelector(state => state.auth.isAuthed);
@@ -68,10 +69,12 @@ export default function SignContainer() {
           </>
         )}
       </StyledSignContainer>
-      {/* 모달(다이얼로그 포함) */}
-      {isModalShow ? (
-        <Modal modalType={isModalShow.type} onClose={onClose} />
-      ) : null}
+      <AnimatePresence>
+        {/* 모달(다이얼로그 포함) */}
+        {isModalShow ? (
+          <Modal modalType={isModalShow.type} onClose={onClose} />
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }
