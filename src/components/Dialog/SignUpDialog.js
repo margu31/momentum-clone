@@ -230,7 +230,12 @@ export default function SignUpDialog({ onClose }) {
     onSubmit(formdata);
   };
   return (
-    <StyledDialog>
+    <StyledDialog
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.2 }}
+      exit={{ y: 50, opacity: 0 }}
+    >
       <FormInput
         label="이름"
         name="displayName"
@@ -277,7 +282,7 @@ export default function SignUpDialog({ onClose }) {
         회원가입
       </StyledButton>
       <StyledCloseButton type="button" onClick={onClose}>
-        X
+        x
       </StyledCloseButton>
     </StyledDialog>
   );

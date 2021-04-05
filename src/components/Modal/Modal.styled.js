@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const StyledModal = styled.div`
+const StyledModal = styled(motion.div)`
   position: fixed;
   left: 0;
   top: 0;

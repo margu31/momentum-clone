@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const StyledDialog = styled.form`
+export const StyledDialog = styled(motion.form)`
   position: relative;
   display: flex;
   flex-flow: column;

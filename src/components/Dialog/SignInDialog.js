@@ -147,7 +147,12 @@ export default function SignInDialog({ onClose }) {
   };
 
   return (
-    <StyledDialog>
+    <StyledDialog
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.2 }}
+      exit={{ y: 50, opacity: 0 }}
+    >
       <FormInput
         label="아이디"
         name="email"
