@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { DropDownTitle } from './DropDownTitle';
 import { NewTodoOrTodoList } from './NewTodoOrTodoList';
 
-const StyledModal = styled.div`
+const StyledModal = styled(motion.div)`
   box-sizing: border-box;
   width: 320px;
   height: auto;
@@ -19,7 +20,12 @@ const TodoModal = ({ todos, onCreate, onToggle, onRemove }) => {
   const [title, setTitle] = useState('Today');
 
   return (
-    <StyledModal>
+    <StyledModal
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.35 }}
+      exit={{ y: 100, opacity: 0 }}
+    >
       <DropDownTitle title={title} setTitle={setTitle} todos={todos} />
       <NewTodoOrTodoList
         todos={todos}
