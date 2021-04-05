@@ -29,10 +29,8 @@ export default function SignContainer() {
 
   // 인증 상태 감지 이벤트
   React.useEffect(() => {
-    console.log('이펙트!');
     // 이벤츠 해제 함수 참조
     const unsubscribe = auth.onAuthStateChanged(async currentUser => {
-      console.log('currentUser :', currentUser);
       if (currentUser) {
         const userRef = await createOrGetAuthUser(currentUser);
 
