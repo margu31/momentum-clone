@@ -20,6 +20,9 @@ export const StyledInputWrapper = styled.div`
   position: relative;
   display: inline-flex;
   min-width: 296px;
+  box-sizing: border-box;
+  border-radius: 5px;
+
   ${({ isError }) =>
     isError &&
     css`
@@ -31,11 +34,12 @@ export const StyledInput = styled.input.attrs(props => ({
   id: props.id,
 }))`
   flex: 1;
-  border: 0;
-  padding: 0.875em;
-  font: 500 1rem/1.375 'Noto Sans';
-  background: #000;
-  color: ${darken(0.1, '#fefefe')};
+  border: 1px solid #585757;
+  padding: 0.6em;
+  font: 500 0.9rem 'Noto Sans';
+  border-radius: 5px;
+  background: transparent;
+  color: ${darken(0.1, '#000')};
 
   &::placeholder {
     color: ${darken(0.1, 'rgba(147, 153, 210, 0.56)')};
@@ -63,6 +67,7 @@ export const StyledButton = styled.button`
   cursor: pointer;
   border: 0;
   padding: 0;
+  font-size: 0.75rem;
 
   &:disabled {
     cursor: not-allowed;
@@ -82,8 +87,8 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledError = styled.span`
-  margin-top: 10px;
+  margin-top: 7px;
   margin-left: 10px;
-  font-size: 15px;
+  font-size: 0.5rem;
   color: #ff0c39;
 `;
