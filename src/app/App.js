@@ -1,7 +1,11 @@
-import { ExampleContainer } from '../containers';
+import GreetingContainer from '../containers/GreetingContainer';
 
 function App() {
-  return <ExampleContainer />;
+  return (
+    <>
+      <GreetingContainer />
+    </>
+  );
 }
 
 export default App;
