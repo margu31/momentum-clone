@@ -69,8 +69,6 @@ export const handleSignInWithEmailAndPassword = (
   try {
     const { user } = await auth.signInWithEmailAndPassword(email, password);
 
-    console.log(user);
-
     // const { additionalUserInfo: { profile }, user: userInfo } = await createOrGetAuthUser(user);
 
     const currentUser = {

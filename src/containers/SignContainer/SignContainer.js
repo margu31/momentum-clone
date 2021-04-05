@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SignInButton from 'components/SignButton/SignInButton';
 import SignOutButton from 'components/SignButton/SignOutButton';
 import SignUpButton from '../../components/SignButton/SignUpButton';
@@ -11,6 +11,7 @@ import { signInAction, signOutAction } from 'redux/modules/auth';
 export default function SignContainer() {
   const isAuthed = useSelector(state => state.auth.isAuthed);
   const [isModalShow, setIsModalShow] = React.useState(false);
+  const dispatch = useDispatch();
 
   const onClose = () => {
     setIsModalShow(false);
@@ -28,17 +29,23 @@ export default function SignContainer() {
 
   // 인증 상태 감지 이벤트
   React.useEffect(() => {
+    console.log('이펙트!');
     // 이벤츠 해제 함수 참조
     const unsubscribe = auth.onAuthStateChanged(async currentUser => {
+      console.log('currentUser :', currentUser);
       if (currentUser) {
         const userRef = await createOrGetAuthUser(currentUser);
 
         userRef.onSnapshot(
           snapshot => {
-            signInAction({
-              uid: snapshot.id,
-              ...snapshot.data(),
-            });
+            dispatch(
+              signInAction({
+                uid: snapshot.id,
+                ...snapshot.data(),
+                /* email: snapshot.email,
+              displayName: snapshot.name, */
+              }),
+            );
           },
           // 참고: https://firebase.google.com/docs/firestore/query-data/listen#handle_listen_errors
           error => console.error(error.message),
@@ -49,7 +56,7 @@ export default function SignContainer() {
     });
     // 클린업
     return () => unsubscribe();
-  }, []);
+  });
 
   return (
     <>
