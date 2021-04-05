@@ -7,5 +7,5 @@
   "useTabs": false,
   "arrowParens": "avoid",
   "endOfLine": "lf",
-  "editor.formatOnSave": true 
+  "editor.formatOnSave": true
 }

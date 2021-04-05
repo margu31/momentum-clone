@@ -1,7 +1,7 @@
-import { ExampleContainer } from '../containers';
+import TodoContainer from 'containers/TodoContainer';
 
 function App() {
-  return <ExampleContainer />;
+  return <TodoContainer />;
 }
 
 export default App;
