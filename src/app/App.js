@@ -1,6 +1,7 @@
 import GreetingContainer from '../containers/GreetingContainer';
 import SignContainer from 'containers/SignContainer/SignContainer';
 import PhotoList from '../components/BackGround/PhotoList';
+import TodoContainer from 'containers/TodoContainer';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <PhotoList />
       <GreetingContainer />
       <SignContainer />
+      <TodoContainer />
     </>
   );
 }
