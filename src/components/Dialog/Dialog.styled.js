@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { darken, lighten } from 'polished';
 
 export const StyledDialog = styled.form`
   position: relative;
