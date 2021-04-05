@@ -6,7 +6,8 @@ import {
   handleSignInWithEmailAndPassword,
 } from 'api/firebase';
 import FormInput from '../FormInput/FormInput';
-import { isValidEmailFormat, isValidPasswordFormat } from '../../utils';
+import { isValidEmailFormat, isValidPasswordFormat } from 'utils';
+import { FcGoogle } from 'react-icons/fc';
 
 const initialSignInFormValues = {
   email: '',
@@ -177,10 +178,11 @@ export default function SignInDialog({ onClose }) {
         onClick={() => dispatch(handleSignInGoogleAuthProvider(onClose))}
         type="button"
       >
-        구글 로그인
+        <FcGoogle />
+        &nbsp;구글 로그인
       </StyledButton>
       <StyledCloseButton type="button" onClick={onClose}>
-        X
+        x
       </StyledCloseButton>
     </StyledDialog>
   );
