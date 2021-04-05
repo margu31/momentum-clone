@@ -148,10 +148,10 @@ export default function SignInDialog({ onClose }) {
 
   return (
     <StyledDialog
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 80 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.2 }}
-      exit={{ y: 50, opacity: 0 }}
+      exit={{ y: 80, opacity: 0 }}
     >
       <FormInput
         label="아이디"
