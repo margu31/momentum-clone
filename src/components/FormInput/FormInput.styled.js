@@ -80,3 +80,10 @@ export const StyledButton = styled.button`
     vertical-align: bottom;
   }
 `;
+
+export const StyledError = styled.span`
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 15px;
+  color: #ff0c39;
+`;

@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  StyledError,
   StyledFormControl,
   StyledInput,
   StyledInputWrapper,
@@ -9,15 +10,15 @@ import {
 export default function FormInput({
   id,
   label,
-  hasError,
   placeholder,
   value,
+  error,
   ...restProps
 }) {
   return (
     <StyledFormControl>
       <StyledLabel htmlFor={id}>{label}</StyledLabel>
-      <StyledInputWrapper isError={hasError}>
+      <StyledInputWrapper isError={!!error}>
         <StyledInput
           placeholder={placeholder}
           id={id}
@@ -25,6 +26,7 @@ export default function FormInput({
           {...restProps}
         />
       </StyledInputWrapper>
+      {error && <StyledError role="alert">{error}</StyledError>}
     </StyledFormControl>
   );
 }
