@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
@@ -28,14 +29,16 @@ export default function TodoContainer() {
 
   return (
     <StyledTodoContainer>
-      {visible && (
-        <TodoModal
-          todos={todos}
-          onCreate={onCreate}
-          onToggle={onToggle}
-          onRemove={onRemove}
-        />
-      )}
+      <AnimatePresence>
+        {visible && (
+          <TodoModal
+            todos={todos}
+            onCreate={onCreate}
+            onToggle={onToggle}
+            onRemove={onRemove}
+          />
+        )}
+      </AnimatePresence>
       <TodoButton onClick={onClick} />
     </StyledTodoContainer>
   );
