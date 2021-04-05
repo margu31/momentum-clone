@@ -23,6 +23,7 @@ export default function FormInput({
           placeholder={placeholder}
           id={id}
           value={value}
+          autoComplete="off"
           {...restProps}
         />
       </StyledInputWrapper>
