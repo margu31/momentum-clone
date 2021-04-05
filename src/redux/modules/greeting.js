@@ -47,17 +47,17 @@ export default function greeting(state = initialState, action) {
     case GREETING_MORNING:
       return {
         ...state,
-        greeting: 'Good morning, Jihye.',
+        greeting: 'Good morning, ',
       };
     case GREETING_AFTERNOON:
       return {
         ...state,
-        greeting: 'Good afternoon, Jihye.',
+        greeting: 'Good afternoon, ',
       };
     case GREETING_EVENING:
       return {
         ...state,
-        greeting: 'Good evening, Jihye.',
+        greeting: 'Good evening, ',
       };
     default:
       return state;

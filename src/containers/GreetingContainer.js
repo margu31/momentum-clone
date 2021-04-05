@@ -15,13 +15,18 @@ import { AnimatePresence } from 'framer-motion';
 
 export default function GreetingContainer() {
   const { time, toggle, greeting } = useSelector(state => state.greeting);
-  // const { loading } = useSelector(state => state.photo);
+  const { authUser, isAuthed } = useSelector(state => state.auth);
   const dispatch = useDispatch();
 
   const [clock12Ver, clock23Ver, hours] = time;
   const clock = toggle ? clock12Ver : clock23Ver;
 
   const [visible, setVisible] = useState(false);
+
+  let userName = 'there!';
+  if (isAuthed) {
+    userName = authUser.displayName;
+  }
 
   const onToggle = () => {
     dispatch(toggleTime());
@@ -56,7 +61,7 @@ export default function GreetingContainer() {
           />
         </AnimatePresence>
       </GreetingTime>
-      <GreetingMessage message={greeting} />
+      <GreetingMessage message={greeting} userName={userName} />
     </Greeting>
   );
 }

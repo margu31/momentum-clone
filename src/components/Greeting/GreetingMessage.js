@@ -8,10 +8,16 @@ const StyledMessage = styled.span`
   color: #fff;
 `;
 
-export default function GreetingMessage({ message }) {
-  return <StyledMessage>{message}</StyledMessage>;
+export default function GreetingMessage({ message, userName }) {
+  return (
+    <StyledMessage>
+      {message}
+      {userName}
+    </StyledMessage>
+  );
 }
 
 GreetingMessage.propTypes = {
   message: PropTypes.string,
+  userName: PropTypes.string,
 };
