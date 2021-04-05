@@ -1,4 +1,4 @@
-import firebase from 'firebase/app';
+import firebase from 'firebase';
 import { signInAction, signOutAction } from '../redux/modules/auth';
 
 const {
@@ -22,7 +22,7 @@ const config = {
 /* firebase 초기화 */
 firebase.initializeApp(config);
 
-const auth = firebase.auth();
+export const auth = firebase.auth();
 const firestore = firebase.firestore();
 
 /* 언어 설정 */
@@ -100,7 +100,7 @@ export const handleSignOut = () => async dispatch => {
 };
 
 /* 회원가입 함수 */
-const createOrGetAuthUser = async (user, additionalData = {}) => {
+export const createOrGetAuthUser = async (user, additionalData = {}) => {
   // 사용자 정보가 전달되지 않으면 오류
   if (!user) {
     throw new Error(
